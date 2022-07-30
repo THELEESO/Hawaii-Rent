@@ -18,6 +18,12 @@ header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: white;
+  box-shadow: 3px 3px 5px 1px #ccc;
+
   div.logo {
     margin-left: 2rem;
     display: flex;
@@ -102,6 +108,7 @@ main {
       flex-wrap: wrap;
       width: 80%;
       min-height: 80vh; // 要有高度才可以讓 justify-content 有空間去運作 space-around
+
       div.card {
         display: flex;
         flex-direction: column;
@@ -109,11 +116,23 @@ main {
         justify-content: space-around;
         padding: 1rem;
         flex: 1 1 300px;
-        img {
+
+        div.imgContainer {
+          overflow: hidden;
           width: 15vw;
           height: 15vw;
           border-radius: 50%;
-          margin: 1rem 0rem;
+          // margin: 1rem 0rem;
+
+          img {
+            width: 15vw;
+            height: 15vw;
+            border-radius: 50%;
+            transition: all 0.2s;
+          }
+          img:hover {
+            transform: scale(1.2);
+          }
         }
         h4 {
           font-size: 2rem;
@@ -180,15 +199,35 @@ footer {
   }
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(1, 109, 109);
+}
+
 @media screen and (max-width: 700px) {
   main {
     section.second {
       section.cards {
         div.card {
-          img {
+          div.imgContainer {
             width: 40vw;
             height: 40vw;
             border-radius: 50%;
+            img {
+              width: 40vw;
+              height: 40vw;
+              border-radius: 50%;
+            }
           }
         }
       }

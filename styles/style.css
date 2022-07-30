@@ -18,6 +18,12 @@ header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: white;
+  box-shadow: 3px 3px 5px 1px #ccc;
 }
 header div.logo {
   margin-left: 2rem;
@@ -103,11 +109,20 @@ main section.second section.cards div.card {
   padding: 1rem;
   flex: 1 1 300px;
 }
-main section.second section.cards div.card img {
+main section.second section.cards div.card div.imgContainer {
+  overflow: hidden;
   width: 15vw;
   height: 15vw;
   border-radius: 50%;
-  margin: 1rem 0rem;
+}
+main section.second section.cards div.card div.imgContainer img {
+  width: 15vw;
+  height: 15vw;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+main section.second section.cards div.card div.imgContainer img:hover {
+  transform: scale(1.2);
 }
 main section.second section.cards div.card h4 {
   font-size: 2rem;
@@ -168,8 +183,28 @@ footer section.links a img {
   height: 5vw;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(1, 109, 109);
+}
+
 @media screen and (max-width: 700px) {
-  main section.second section.cards div.card img {
+  main section.second section.cards div.card div.imgContainer {
+    width: 40vw;
+    height: 40vw;
+    border-radius: 50%;
+  }
+  main section.second section.cards div.card div.imgContainer img {
     width: 40vw;
     height: 40vw;
     border-radius: 50%;
